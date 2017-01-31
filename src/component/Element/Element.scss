@@ -1,0 +1,141 @@
+@import '../../index';
+
+.element {
+  position: absolute;
+  z-index: 0;
+  height: 48px;
+  width: 48px;
+  font-size: 16px;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+  transition: .2s;
+  cursor: pointer;
+  
+  &.selected {
+    top: 0 !important;
+    left: 0 !important;
+    height: 480px;
+    width: 864px;
+    z-index: 1000;
+    background-color: $tangaroa !important;
+    &:hover {
+      background-color: $tangaroa !important;
+    }
+  }
+  
+  &.selected > .symbol {
+    display: none;
+  }
+    
+  &.selected .element-summary {
+    display: inline-block;
+    animation: .666s slideIn ease-out;
+  }
+  
+  .element-summary {
+    display: none;
+    width: 640px;
+    padding-bottom: 5em;
+    min-height: 480px;
+    color: $orchid;
+    text-align: left;
+  }
+  
+  .element-summary .symbol {
+    padding-left: .2em;
+    font-size: 7.2rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: $cello;
+  }
+  .element-summary .name {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.2em;
+  }
+  .element-summary .number {
+    position: absolute;
+    font-size: 2.1rem;
+    font-weight: 200;
+  }
+  .element-summary .summary {
+    display: block;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5em;
+    margin-bottom: 2em;
+  }
+
+  .element-summary .row span {
+    display: inline-block;
+    padding: 0 1em;
+    width: 40%;
+  }
+
+  .element-summary .row:nth-of-type(2n+1) {
+    background-color: darken($cello,0%);
+  }
+  
+  &.metal,
+  &.nonmetal,
+  &.metalloid,
+  &.actinide,
+  &.noble,
+  &.lanthanide {
+    &:hover {
+      background-color: lighten($cello,24%);
+    }
+  }
+  
+  // Group colors
+  &.nonmetal {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,12%);
+  }
+  &.alkali {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,15%);
+  }
+  &.alkaline {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,12%);
+  }
+  &.metalloid {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,9%);
+  }
+  &.transition,
+  &.post-transition {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,3%);
+  }
+  &.noble {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,15%);
+  }
+  &.lanthanide {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,9%);
+  }
+  &.actinide {
+    color: lighten($cello, 64%);
+    background-color: lighten($cello,12%);
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: scale(.98);
+    }
+    25% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+      transform: scale(1);
+    }
+  }
+}
